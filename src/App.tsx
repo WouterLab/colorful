@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import s from "./App.module.scss";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { ColorPicker } from "./components/ColorPicker/ColorPicker";
@@ -22,10 +22,21 @@ function App() {
   const changeTheme = () => {
     if (theme === "dark") {
       setTheme("light");
-    } else setTheme("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      setTheme("dark");
+      localStorage.setItem("theme", "dark");
+    }
   };
 
   const themeStyles = theme === "dark" ? s.dark : s.light;
+
+  useEffect(() => {
+    const currentTheme = localStorage.getItem("theme");
+    console.log(currentTheme);
+
+    if (currentTheme) setTheme(currentTheme);
+  }, []);
 
   return (
     <ThemeContext.Provider value={theme}>

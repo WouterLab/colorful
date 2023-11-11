@@ -5,14 +5,14 @@ import { ThemeContext } from "../../App";
 
 function ColorPicker() {
   const [color, setColor] = useState("#ffffff");
-  const [secondColor, setSecondColor] = useState("#ffffff");
+  const [secondColor, setSecondColor] = useState("#7afffd");
   const [isGradient, setIsGradient] = useState(false);
   const theme = useContext(ThemeContext);
 
   const getBlockStyles = () => {
     if (isGradient) {
       return {
-        background: `linear-gradient(45deg, ${color} 0%, ${color} 40%, ${secondColor} 100%)`,
+        background: `linear-gradient(30deg, ${color} 0%, ${secondColor} 100%)`,
       };
     } else
       return {
@@ -25,6 +25,12 @@ function ColorPicker() {
   return (
     <div className={s.colorPicker}>
       <div className={s.block} style={getBlockStyles()}></div>
+      <div
+        className={`${s.gradientButton} ${themeButton}`}
+        onClick={() => setIsGradient(!isGradient)}
+      >
+        gradient {isGradient ? "on" : "off"}
+      </div>
       <div className={s.inputRow}>
         <input
           className={s.picker}
@@ -45,12 +51,6 @@ function ColorPicker() {
           <div>color: {secondColor}</div>
         </div>
       )}
-      <div
-        className={`${s.gradientButton} ${themeButton}`}
-        onClick={() => setIsGradient(!isGradient)}
-      >
-        gradient {isGradient ? "on" : "off"}
-      </div>
     </div>
   );
 }
