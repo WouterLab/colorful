@@ -1,5 +1,6 @@
-import { useState, useContext } from "react";
+import { useState, useRef, LegacyRef, useContext } from "react";
 
+import { BsFillPaletteFill } from "react-icons/bs";
 import s from "./ColorPicker.module.scss";
 import { ThemeContext } from "../../App";
 
@@ -8,6 +9,7 @@ function ColorPicker() {
   const [secondColor, setSecondColor] = useState("#7afffd");
   const [isGradient, setIsGradient] = useState(false);
   const theme = useContext(ThemeContext);
+  const PaletteRef = useRef<HTMLInputElement>(null);
 
   const getBlockStyles = () => {
     if (isGradient) {
@@ -22,6 +24,10 @@ function ColorPicker() {
 
   const themeButton = theme === "dark" ? s.buttonDark : s.buttonLight;
   const themeColor = theme === "dark" ? s.colorDark : s.colorLight;
+
+  const paletteClick = () => {
+    PaletteRef.current?.click();
+  };
 
   return (
     <div className={s.colorPicker}>
@@ -38,6 +44,13 @@ function ColorPicker() {
           type='color'
           value={color}
           onChange={(e) => setColor(e.target.value)}
+          ref={PaletteRef}
+        />
+        <BsFillPaletteFill
+          color={theme === "dark" ? "#fff" : "#222"}
+          className={s.palette}
+          onClick={paletteClick}
+          size={24}
         />
         <div>color: </div>
         <input
@@ -55,6 +68,12 @@ function ColorPicker() {
             type='color'
             value={secondColor}
             onChange={(e) => setSecondColor(e.target.value)}
+            ref={PaletteRef}
+          />
+          <BsFillPaletteFill
+            color={theme === "dark" ? "#fff" : "#222"}
+            className={s.palette}
+            onClick={paletteClick}
           />
           <div>color: </div>
           <input
