@@ -8,12 +8,20 @@
   border-radius: 20px;
   width: 300px;
   height: 300px;
+  transition: all 0.3s;
 }
 
 .picker {
-  width: 100%;
+  width: 20%;
   border: none;
   outline: none;
   background-color: #ffffff;
   border-radius: 5px;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
 }

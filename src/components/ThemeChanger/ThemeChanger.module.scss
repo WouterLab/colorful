@@ -1,0 +1,27 @@
+.button {
+  padding: 10px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.buttonDark {
+  background-color: #d8d8d8;
+}
+
+.buttonLight {
+  background-color: #222;
+}
+
+.iconDark {
+  color: #222;
+}
+
+.iconLight {
+  color: #d8d8d8;
+}

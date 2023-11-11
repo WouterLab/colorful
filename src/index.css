@@ -91,5 +91,5 @@ video {
 html,
 body,
 #root {
-  background-color: #222;
+  height: 100%;
 }
