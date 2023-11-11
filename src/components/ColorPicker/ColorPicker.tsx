@@ -74,6 +74,7 @@ function ColorPicker() {
             color={theme === "dark" ? "#fff" : "#222"}
             className={s.palette}
             onClick={paletteClick}
+            size={24}
           />
           <div>color: </div>
           <input
