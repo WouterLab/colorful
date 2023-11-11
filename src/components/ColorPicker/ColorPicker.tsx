@@ -31,7 +31,7 @@ function ColorPicker() {
     PaletteRef.current?.click();
   };
 
-  const GradientPaletteClick = () => {
+  const gradientPaletteClick = () => {
     GradientPaletteRef.current?.focus();
     GradientPaletteRef.current?.click();
   };
@@ -46,54 +46,58 @@ function ColorPicker() {
         gradient {isGradient ? "on" : "off"}
       </div>
       <div className={s.inputRow}>
-        <input
-          className={s.picker}
-          type='color'
-          value={color}
-          onChange={(e) => setColor(e.target.value)}
-          ref={PaletteRef}
-        />
+        <div className={s.leftRow}>
+          <input
+            className={s.picker}
+            type='color'
+            value={color}
+            onChange={(e) => setColor(e.target.value)}
+            ref={PaletteRef}
+          />
+          <div className={s.text} onClick={paletteClick}>
+            color:
+          </div>
+          <input
+            type='text'
+            value={color}
+            onChange={(e) => setColor(e.target.value)}
+            maxLength={7}
+            className={`${s.hex} ${themeColor}`}
+          />
+        </div>
         <BsFillPaletteFill
           color={theme === "dark" ? "#fff" : "#222"}
           className={s.palette}
           size={24}
           onClick={paletteClick}
         />
-        <div className={s.text} onClick={paletteClick}>
-          color:{" "}
-        </div>
-        <input
-          type='text'
-          value={color}
-          onChange={(e) => setColor(e.target.value)}
-          maxLength={7}
-          className={`${s.hex} ${themeColor}`}
-        />
       </div>
       {isGradient && (
         <div className={s.inputRow}>
-          <input
-            className={s.picker}
-            type='color'
-            value={secondColor}
-            onChange={(e) => setSecondColor(e.target.value)}
-            ref={GradientPaletteRef}
-          />
+          <div className={s.leftRow}>
+            <input
+              className={s.picker}
+              type='color'
+              value={secondColor}
+              onChange={(e) => setSecondColor(e.target.value)}
+              ref={GradientPaletteRef}
+            />
+            <div className={s.text} onClick={gradientPaletteClick}>
+              color:
+            </div>
+            <input
+              type='text'
+              value={secondColor}
+              onChange={(e) => setSecondColor(e.target.value)}
+              maxLength={7}
+              className={`${s.hex} ${themeColor}`}
+            />
+          </div>
           <BsFillPaletteFill
             color={theme === "dark" ? "#fff" : "#222"}
             className={s.palette}
-            onClick={GradientPaletteClick}
+            onClick={gradientPaletteClick}
             size={24}
-          />
-          <div className={s.text} onClick={GradientPaletteClick}>
-            color:{" "}
-          </div>
-          <input
-            type='text'
-            value={secondColor}
-            onChange={(e) => setSecondColor(e.target.value)}
-            maxLength={7}
-            className={`${s.hex} ${themeColor}`}
           />
         </div>
       )}

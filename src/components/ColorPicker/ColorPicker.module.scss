@@ -42,8 +42,13 @@
 .inputRow {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+}
+
+.leftRow {
+  display: flex;
   font-size: 28px;
+  gap: 5px;
 }
 
 .gradientButton {
