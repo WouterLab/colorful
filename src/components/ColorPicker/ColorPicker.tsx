@@ -77,7 +77,7 @@ function ColorPicker() {
             onClick={paletteClick}
             size={24}
           />
-          <div>color: </div>
+          <div onClick={paletteClick}>color: </div>
           <input
             type='text'
             value={secondColor}
