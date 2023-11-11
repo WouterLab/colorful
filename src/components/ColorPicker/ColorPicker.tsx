@@ -59,7 +59,9 @@ function ColorPicker() {
           size={24}
           onClick={paletteClick}
         />
-        <div onClick={paletteClick}>color: </div>
+        <div className={s.text} onClick={paletteClick}>
+          color:{" "}
+        </div>
         <input
           type='text'
           value={color}
@@ -83,7 +85,9 @@ function ColorPicker() {
             onClick={GradientPaletteClick}
             size={24}
           />
-          <div onClick={paletteClick}>color: </div>
+          <div className={s.text} onClick={GradientPaletteClick}>
+            color:{" "}
+          </div>
           <input
             type='text'
             value={secondColor}
