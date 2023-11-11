@@ -22,7 +22,6 @@ function ColorPicker() {
 
   const themeButton = theme === "dark" ? s.buttonDark : s.buttonLight;
   const themeColor = theme === "dark" ? s.colorDark : s.colorLight;
-  const themePicker = theme === "dark" ? s.pickerDark : s.pickerLight;
 
   return (
     <div className={s.colorPicker}>
@@ -35,7 +34,7 @@ function ColorPicker() {
       </div>
       <div className={s.inputRow}>
         <input
-          className={`${s.picker} ${themePicker}`}
+          className={s.picker}
           type='color'
           value={color}
           onChange={(e) => setColor(e.target.value)}
