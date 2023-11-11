@@ -14,8 +14,15 @@
   width: 20%;
   border: none;
   outline: none;
-  background-color: #ffffff;
   border-radius: 5px;
+}
+
+.pickerLight {
+  background-color: #424242;
+}
+
+.pickerDark {
+  background-color: #ffffff;
 }
 
 .inputRow {
@@ -38,4 +45,20 @@
 
 .buttonDark {
   border: 2px solid #fff;
+}
+.hex {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 28px;
+  width: 130px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.colorLight {
+  color: #222;
+}
+
+.colorDark {
+  color: #fff;
 }

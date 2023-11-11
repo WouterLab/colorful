@@ -21,6 +21,8 @@ function ColorPicker() {
   };
 
   const themeButton = theme === "dark" ? s.buttonDark : s.buttonLight;
+  const themeColor = theme === "dark" ? s.colorDark : s.colorLight;
+  const themePicker = theme === "dark" ? s.pickerDark : s.pickerLight;
 
   return (
     <div className={s.colorPicker}>
@@ -33,12 +35,19 @@ function ColorPicker() {
       </div>
       <div className={s.inputRow}>
         <input
-          className={s.picker}
+          className={`${s.picker} ${themePicker}`}
           type='color'
           value={color}
           onChange={(e) => setColor(e.target.value)}
         />
-        <div>color: {color}</div>
+        <div>color: </div>
+        <input
+          type='text'
+          value={color}
+          onChange={(e) => setColor(e.target.value)}
+          maxLength={7}
+          className={`${s.hex} ${themeColor}`}
+        />
       </div>
       {isGradient && (
         <div className={s.inputRow}>
@@ -48,7 +57,14 @@ function ColorPicker() {
             value={secondColor}
             onChange={(e) => setSecondColor(e.target.value)}
           />
-          <div>color: {secondColor}</div>
+          <div>color: </div>
+          <input
+            type='text'
+            value={secondColor}
+            onChange={(e) => setSecondColor(e.target.value)}
+            maxLength={7}
+            className={`${s.hex} ${themeColor}`}
+          />
         </div>
       )}
     </div>
