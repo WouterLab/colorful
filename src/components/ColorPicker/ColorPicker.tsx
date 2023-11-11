@@ -26,6 +26,7 @@ function ColorPicker() {
   const themeColor = theme === "dark" ? s.colorDark : s.colorLight;
 
   const paletteClick = () => {
+    PaletteRef.current?.focus();
     PaletteRef.current?.click();
   };
 
@@ -49,10 +50,10 @@ function ColorPicker() {
         <BsFillPaletteFill
           color={theme === "dark" ? "#fff" : "#222"}
           className={s.palette}
-          onClick={paletteClick}
           size={24}
+          onClick={paletteClick}
         />
-        <div>color: </div>
+        <div onClick={paletteClick}>color: </div>
         <input
           type='text'
           value={color}
