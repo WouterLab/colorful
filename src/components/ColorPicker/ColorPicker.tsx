@@ -10,6 +10,7 @@ function ColorPicker() {
   const [isGradient, setIsGradient] = useState(false);
   const theme = useContext(ThemeContext);
   const PaletteRef = useRef<HTMLInputElement>(null);
+  const GradientPaletteRef = useRef<HTMLInputElement>(null);
 
   const getBlockStyles = () => {
     if (isGradient) {
@@ -28,6 +29,11 @@ function ColorPicker() {
   const paletteClick = () => {
     PaletteRef.current?.focus();
     PaletteRef.current?.click();
+  };
+
+  const GradientPaletteClick = () => {
+    GradientPaletteRef.current?.focus();
+    GradientPaletteRef.current?.click();
   };
 
   return (
@@ -69,12 +75,12 @@ function ColorPicker() {
             type='color'
             value={secondColor}
             onChange={(e) => setSecondColor(e.target.value)}
-            ref={PaletteRef}
+            ref={GradientPaletteRef}
           />
           <BsFillPaletteFill
             color={theme === "dark" ? "#fff" : "#222"}
             className={s.palette}
-            onClick={paletteClick}
+            onClick={GradientPaletteClick}
             size={24}
           />
           <div onClick={paletteClick}>color: </div>
