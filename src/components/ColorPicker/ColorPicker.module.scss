@@ -4,7 +4,7 @@
 }
 
 .block {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 20px;
   width: 300px;
   height: 300px;
@@ -24,4 +24,19 @@
   align-items: center;
   gap: 10px;
   font-size: 28px;
+}
+
+.gradientButton {
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.buttonLight {
+  border: 2px solid #222;
+}
+
+.buttonDark {
+  border: 2px solid #fff;
 }
